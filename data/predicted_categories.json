@@ -1,38 +1,11 @@
 {
-    "rOqgRiNMVqg": {
-        "category": "data_science",
-        "predicted_categories": "engineering"
-    },
-    "Tmd5eKVgySY": {
-        "category": "data_science",
-        "predicted_categories": "engineering"
-    },
-    "JwBNYjaEwmQ": {
-        "category": "data_science",
-        "predicted_categories": "engineering"
-    },
-    "Y33pKPUamCQ": {
-        "category": "cicd_ux",
-        "predicted_categories": "cicd_ux"
-    },
-    "kGHyK_SkZB0": {
-        "category": "cicd_ux",
-        "predicted_categories": "cicd_ux"
-    },
-    "HFEFQ4NcgSQ": {
-        "category": "cicd_ux",
-        "predicted_categories": "engineering"
-    },
-    "qGFoZ8yodc4": {
-        "category": "engineering",
-        "predicted_categories": "engineering"
-    },
-    "t-NF5fNOyo8": {
-        "category": "engineering",
-        "predicted_categories": "engineering"
-    },
-    "GgnkH3uih4o": {
-        "category": "engineering",
-        "predicted_categories": "engineering"
-    }
+    "rOqgRiNMVqg": "engineering",
+    "Tmd5eKVgySY": "engineering",
+    "JwBNYjaEwmQ": "engineering",
+    "Y33pKPUamCQ": "cicd_ux",
+    "kGHyK_SkZB0": "engineering",
+    "HFEFQ4NcgSQ": "engineering",
+    "qGFoZ8yodc4": "engineering",
+    "t-NF5fNOyo8": "engineering",
+    "GgnkH3uih4o": "engineering"
 }

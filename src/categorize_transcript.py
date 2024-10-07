@@ -19,8 +19,7 @@ Return one of the relevant category labels and follow this syntax: data_science,
 {youtube_transcript_text}
 """
 
-
-if __name__ == "__main__":
+def main(OPENAI_API_KEY):
     openai_client = get_openai_client(OPENAI_API_KEY)
 
     cleaned_captions = json_to_dct("data/cleaned_captions.json")
@@ -34,3 +33,6 @@ if __name__ == "__main__":
 
     with open('data/predicted_categories.json', 'w') as json_file:
         json.dump(predicted_categories, json_file, indent=4)
+
+if __name__ == "__main__":
+    main(OPENAI_API_KEY)

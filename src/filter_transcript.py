@@ -21,18 +21,26 @@ Therefore, the resulting text should be the meeting with text from people speaki
 {youtube_transcript_text}
 """
 
-
-if __name__ == "__main__":
+def filter_transcript(OPENAI_API_KEY):
     openai_client = get_openai_client(OPENAI_API_KEY)
 
-    cleaned_captions = json_to_dct("data/cleaned_captions.json")
+    data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
+    cleaned_captions_path = os.path.join(data_dir, "cleaned_captions.json")
+    filtered_captions_path = os.path.join(data_dir, "filtered_captions.json")
 
-    filtered_captions = process_text(
+    cleaned_captions = json_to_dct(cleaned_captions_path)
+
+    """filtered_captions = process_text(
         cleaned_captions, 
         openai_client, 
         PROMPT_TEMPLATE, 
         "Filtering Captions"
-    )
+    )"""
+    
+    filtered_captions = {'test2': 'test2'}
 
-    with open('data/filtered_captions.json', 'w') as json_file:
+    with open(filtered_captions_path, 'w') as json_file:
         json.dump(filtered_captions, json_file, indent=4)
+
+if __name__ == "__main__":
+    filter_transcript(OPENAI_API_KEY)
