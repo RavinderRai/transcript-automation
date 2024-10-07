@@ -40,22 +40,28 @@ def save_to_markdown(captions, categories, output_file):
             md_file.write(f"{summary}\n\n")
             md_file.write("---\n\n")
 
-def main(OPENAI_API_KEY):
+def summarize_transcripts(OPENAI_API_KEY):
     openai_client = get_openai_client(OPENAI_API_KEY)
 
-    filtered_captions = json_to_dct("data/filtered_captions.json")
+    data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
+    filtered_captions_path = os.path.join(data_dir, "filtered_captions.json")
+    summarized_captions_path = os.path.join(data_dir, "summarized_captions.md")
+
+    filtered_captions = json_to_dct(filtered_captions_path)
 
     summarized_captions = process_text(
         filtered_captions, 
-        openai_client, 
+        openai_client,
         PROMPT_TEMPLATE, 
         "Summarizing Captions"
     )
 
-    categories = json_to_dct("data/predicted_categories.json")
-    save_to_markdown(summarized_captions, categories, "data/summarized_captions.md")
+    predicted_categories_path = os.path.join(data_dir, "predicted_categories.json")
+
+    categories = json_to_dct(predicted_categories_path)
+    save_to_markdown(summarized_captions, categories, summarized_captions_path)
 
 
 if __name__ == "__main__":
-    main(OPENAI_API_KEY)
+    summarize_transcripts(OPENAI_API_KEY)
 

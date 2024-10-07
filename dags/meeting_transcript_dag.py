@@ -14,6 +14,8 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.clean_transcript import clean_transcript
 from src.filter_transcript import filter_transcript
+from src.categorize_transcript import categorize_transcripts
+from src.summarize_transcript import summarize_transcripts
 
 default_args = {
     'owner': 'airflow',
@@ -35,12 +37,10 @@ def run_filter_transcript():
     filter_transcript(OPENAI_API_KEY=OPENAI_API_KEY)
 
 def run_categorize_transcript():
-    python_executable = sys.executable
-    subprocess.run([python_executable, 'src/categorize_transcript.py'])
+    categorize_transcripts(OPENAI_API_KEY=OPENAI_API_KEY)
 
 def run_summarize_transcript():
-    python_executable = sys.executable
-    subprocess.run([python_executable, 'src/summarize_transcript.py'])
+    summarize_transcripts(OPENAI_API_KEY=OPENAI_API_KEY)
 
 clean_task = PythonOperator(
     task_id='clean_transcript',
@@ -50,7 +50,7 @@ clean_task = PythonOperator(
 
 filter_task = PythonOperator(
     task_id='filter_transcript',
-    python_callable=run_clean_transcript,
+    python_callable=run_filter_transcript,
     dag=dag
 )
 

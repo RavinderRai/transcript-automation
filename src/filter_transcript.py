@@ -30,14 +30,12 @@ def filter_transcript(OPENAI_API_KEY):
 
     cleaned_captions = json_to_dct(cleaned_captions_path)
 
-    """filtered_captions = process_text(
+    filtered_captions = process_text(
         cleaned_captions, 
         openai_client, 
         PROMPT_TEMPLATE, 
         "Filtering Captions"
-    )"""
-    
-    filtered_captions = {'test2': 'test2'}
+    )
 
     with open(filtered_captions_path, 'w') as json_file:
         json.dump(filtered_captions, json_file, indent=4)
