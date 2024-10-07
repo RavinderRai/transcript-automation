@@ -75,5 +75,6 @@ def fetch_youtube_data():
 if __name__ == "__main__":
     captions_dict = fetch_youtube_data()
 
-    with open('data/captions.json', 'w') as json_file:
+    with open('data/raw_captions_data.json', 'w') as json_file:
         json.dump(captions_dict, json_file, indent=4)
+        

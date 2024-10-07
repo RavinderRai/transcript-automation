@@ -36,4 +36,3 @@ if __name__ == "__main__":
 
     with open('data/filtered_captions.json', 'w') as json_file:
         json.dump(filtered_captions, json_file, indent=4)
-

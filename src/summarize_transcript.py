@@ -46,9 +46,9 @@ if __name__ == "__main__":
         filtered_captions, 
         openai_client, 
         PROMPT_TEMPLATE, 
-        "Filtering Captions"
+        "Summarizing Captions"
     )
 
-    with open('data/cleaned_captions.json', 'w') as json_file:
+    with open('data/summarized_captions.json', 'w') as json_file:
         json.dump(summarized_captions, json_file, indent=4)
 

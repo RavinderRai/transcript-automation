@@ -22,13 +22,13 @@ Rewrite the text to fix the grammar, spelling, and puntuation, and thus making i
 if __name__ == "__main__":
     openai_client = get_openai_client(OPENAI_API_KEY)
 
-    captions = json_to_dct("data/captions.json")
+    captions = json_to_dct("data/captions_without_cats.json")
 
     cleaned_captions = process_text(
         captions, 
         openai_client, 
         PROMPT_TEMPLATE, 
-        "Filtering Captions"
+        "Cleaning Captions"
     )
     with open('data/cleaned_captions.json', 'w') as json_file:
         json.dump(cleaned_captions, json_file, indent=4)
